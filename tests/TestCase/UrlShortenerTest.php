@@ -151,7 +151,7 @@ class UrlShortenerTest extends TestCase
         self::assertEquals($urlLength, strlen($shortUrlHash[0]));
     }
 
-    public function testFetchMethodTriggerEventsOnSuccess()
+    public function testExpandMethodTriggerEventsOnSuccess()
     {
         $fullUrl = 'success_decoded_url';
         $dataProvider = $this->getDataProviderMock();
@@ -183,7 +183,7 @@ class UrlShortenerTest extends TestCase
         self::assertEquals($fullUrl, $result);
     }
 
-    public function testFetchMethodShouldTriggerFailEvent()
+    public function testExpandMethodShouldTriggerFailEvent()
     {
         $dataProvider = $this->getDataProviderMock();
         $dataProvider->method('get')

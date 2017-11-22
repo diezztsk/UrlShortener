@@ -110,7 +110,7 @@ class UrlShortener
     }
 
     /**
-     * Fetch full url server request.
+     * Expand full url from server request.
      *
      * @param ServerRequest $request
      *
@@ -129,7 +129,7 @@ class UrlShortener
     }
 
     /**
-     * Fetch full url by short url hash.
+     * Expand full url by short url hash.
      *
      * @param string $shortUrl
      *
@@ -142,7 +142,7 @@ class UrlShortener
     }
 
     /**
-     * Fetch full url by short url hash from data storage.
+     * Expand full url by short url hash from data storage.
      *
      * @param string $shortUrl
      *
