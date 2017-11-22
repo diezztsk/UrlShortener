@@ -40,7 +40,7 @@ Define next section in the App config file
     'retryOnDuplicate' => false,
     //Oprioanal. Base url of short url.  
     // If this param not set App.appBaseUrl will be used as baseUrl
-    'baseUrl' => 'http://some-domain.com
+    'baseUrl' => 'http://some-domain.com',
     // Optional. Short url path. By default null,
     // This value will be inserted between base url and short url hash
     // and short url will be looking like this http://domain.com/l/MnNQLC
