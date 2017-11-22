@@ -52,6 +52,11 @@ at the end of  `config/bootstrap.php` write next lines:
 ```php
     Plugin::load('UrlShortener', ['bootstrap' => false, 'routes' => true]);
 ```
+or just run 
+```
+bin/cake plugin load UrlShortener
+```
+
 
 ## Usage
 

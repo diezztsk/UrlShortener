@@ -2,6 +2,7 @@
     "name": "diezz/url-shortener",
     "description": "UrlShortener plugin for CakePHP",
     "type": "cakephp-plugin",
+    "license": "MIT",
     "require": {
         "php": ">=7.1",
         "cakephp/cakephp": "^3.4",
