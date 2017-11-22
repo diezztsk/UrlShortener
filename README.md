@@ -1,10 +1,10 @@
 # UrlShortener plugin for CakePHP
 
 This plugin allow to shorten long urls. For example you have a long url like this  
-`http://some-domain.com/events/follow?event_id=3D8e296a067a37563370ded05f5a3bf3ec&refer=IuyNqrcLQaqPhjzhFiCARg__.3600
+`http://domain.com/events/follow?event_id=3D8e296a067a37563370ded05f5a3bf3ec&refer=IuyNqrcLQaqPhjzhFiCARg__.3600
 .1282755600-761405628%26fb_sig_ss%3DigFqJKrhJZWGSRO`  
 This plugin can shorten this url to  
-`http://some-domain.com/NjdhMz`  
+`http://domain.com/NjdhMz`  
 and after user follow this short url plugin will redirect you to original url.
 
 ## Installation
@@ -14,7 +14,7 @@ You can install this plugin into your CakePHP application using [composer](http:
 The recommended way to install composer packages is:
 
 ```
-composer require your-name-here/UrlShortener
+composer require diezz/url-shortener
 ```
 
 ## Note
@@ -38,9 +38,9 @@ Define next section in the App config file
     // Optional. Whether retry if catch DuplicateKeyException
     // By default false
     'retryOnDuplicate' => false,
-    //Oprioanal. Base url of short url.  
+    //Optioanal. Base url of short url.  
     // If this param not set App.appBaseUrl will be used as baseUrl
-    'baseUrl' => 'http://some-domain.com',
+    'baseUrl' => 'http://domain.com',
     // Optional. Short url path. By default null,
     // This value will be inserted between base url and short url hash
     // and short url will be looking like this http://domain.com/l/MnNQLC
@@ -57,7 +57,6 @@ or just run
 bin/cake plugin load UrlShortener
 ```
 
-
 ## Usage
 
 Create short url
@@ -72,13 +71,13 @@ You can set manually short url
     // $shortUlr = 'http://domain.com/l/one'
 ```
 
-Plugin is providing two methods for fetching full url.
+Plugin is providing two methods for expanding full url.
 ```php    
-    //fetch full url in controller
-    $fullUrl = $urlShortener->fetchByRequest($this->request);
+    //expand full url in controller
+    $fullUrl = $urlShortener->expandByRequest($this->request);
     
-    //fetch url anywhere
-    $fullUrl = $urlShortener->fetchByHash($shortUrlHash);
+    //expand url anywhere
+    $fullUrl = $urlShortener->expandByHash($shortUrlHash);
 ```    
 
 Plugin contain Facade class for convenient UrlShortener usage 
@@ -88,8 +87,8 @@ Plugin contain Facade class for convenient UrlShortener usage
     //create short url
     $shortUrl = UrlShortener::shorten('https://domain.com/some_mega_supper_pupper_long_url');
     
-    //fetch full url
-    $fullUrl = UrlShortener::fetchByRequest($this->request);
+    //expand full url
+    $fullUrl = UrlShortener::expandByRequest($this->request);
 ```
 
 Plugin have default short url hash generator but you may define custom generator by passing callback into 
@@ -129,6 +128,6 @@ You can set event listeners for each event for extending plugin functionality fo
 ```php
 EventManager::instance()->on(UrlShortener::EVENT_EXPAND_FAIL, function(Event $event) {
     $shortUrl = $event->data['shortUrl'];
-    Log::write('error', 'Unable to fetch url: ' . $shortUrl);
+    Log::write('error', 'Unable to expand url: ' . $shortUrl);
 });
 ```
