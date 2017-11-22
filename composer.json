@@ -1,8 +1,9 @@
 {
-    "name": "your-name-here/UrlShortener",
+    "name": "diezz/url-shortener",
     "description": "UrlShortener plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
+        "php": ">=7.1",
         "cakephp/cakephp": "^3.4",
         "league/uri": "^4"
     },
